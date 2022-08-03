@@ -29,9 +29,7 @@ return require('packer').startup(function(use)
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
   }
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-      require("toggleterm").setup()
-  end}
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*',}
   use {
       'kyazdani42/nvim-tree.lua',
       requires = {
