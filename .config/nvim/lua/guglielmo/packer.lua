@@ -30,6 +30,18 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
       require("toggleterm").setup()
   end}
+  use({
+      'glepnir/galaxyline.nvim',
+      branch = 'main',
+      -- some optional icons
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  })
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icons
+      },
+  }
 
 
   end)
