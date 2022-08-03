@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'folke/tokyonight.nvim'
+  use 'NLKNguyen/papercolor-theme'
+  use { "ellisonleao/gruvbox.nvim" }
   use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }
@@ -30,17 +32,16 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
       require("toggleterm").setup()
   end}
-  use({
-      'glepnir/galaxyline.nvim',
-      branch = 'main',
-      -- some optional icons
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-  })
   use {
       'kyazdani42/nvim-tree.lua',
       requires = {
           'kyazdani42/nvim-web-devicons', -- optional, for file icons
       },
+  }
+
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
 
