@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "go", "gomod", "vim"},
+  ensure_installed = { "c", "lua", "rust", "go", "gomod", "vim", "latex"},
 
   highlight = {
       enable = true,

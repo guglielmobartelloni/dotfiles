@@ -42,5 +42,21 @@ return require('packer').startup(function(use)
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use 'B4mbus/oxocarbon-lua.nvim'
+  use { 'Everblush/everblush.nvim', as = 'everblush' }
+
+  -- use {
+  --     'lervag/vimtex',
+  --     'savq/paq-nvim',
+  --     'frabjous/knap',
+  -- }
+
+  use {
+     'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+
 
   end)
