@@ -1,3 +1,5 @@
 #!/bin/sh
 
-cp -r ~/.config/nvim .config && git add . && git commit -m "Sync" && git push 
+cp -r ~/.config/nvim .config
+cp ~/.zshrc 
+git add . && git commit -m "Sync" && git push
