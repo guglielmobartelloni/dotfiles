@@ -80,6 +80,11 @@ _G.packer_plugins = {
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -99,11 +104,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  everblush = {
-    loaded = true,
-    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/everblush",
-    url = "https://github.com/Everblush/everblush.nvim"
   },
   ["gruvbox.nvim"] = {
     loaded = true,
@@ -149,11 +149,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["oxocarbon-lua.nvim"] = {
-    loaded = true,
-    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/oxocarbon-lua.nvim",
-    url = "https://github.com/B4mbus/oxocarbon-lua.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

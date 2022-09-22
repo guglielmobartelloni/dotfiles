@@ -42,8 +42,7 @@ return require('packer').startup(function(use)
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use 'B4mbus/oxocarbon-lua.nvim'
-  use { 'Everblush/everblush.nvim', as = 'everblush' }
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- use {
   --     'lervag/vimtex',
