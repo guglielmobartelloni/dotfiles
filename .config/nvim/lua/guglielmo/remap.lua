@@ -1,4 +1,5 @@
 local nnoremap = require("guglielmo.keymap").nnoremap
+local inoremap = require("guglielmo.keymap").inoremap
 require("toggleterm").setup{
     direction = "float",
 }
@@ -23,6 +24,7 @@ nnoremap("<leader>gg", "<cmd>lua _lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 --nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
+nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 
 
 

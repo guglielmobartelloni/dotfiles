@@ -1,2 +1,23 @@
-snippet dcl \documentclass{}
-	\\documentclass{${1:class}} ${0}
+snippet begin \begin{} ... \end{} block
+	\\begin{${1:env}}
+		${0:${VISUAL}}
+	\\end{$1}
+
+snippet mk "Math" wA
+	\[
+		${0:${VISUAL}}
+	\]
+snippet frac \frac{}{}
+	\\frac{${1:num}}{${2:denom}} ${0}
+
+snippet sum \sum^{}_{}
+	\\sum^{${1:n}}_{${2:i=1}} ${0}
+
+snippet lim \lim_{}
+	\\lim_{${1:n \\to \\infty}} ${0}
+
+snippet app \in{}
+	\\in${0}
+
+snippet int integral
+	\\int_{{$1}}^{{$2}} {$3} \\: d{$4} {$0}
