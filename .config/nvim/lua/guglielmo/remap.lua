@@ -24,7 +24,7 @@ nnoremap("<leader>gg", "<cmd>lua _lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 --nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
-nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
+nnoremap("<leader>oo", ":VimtexCompile<cr>:!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 
 
 
