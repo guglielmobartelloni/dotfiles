@@ -184,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 

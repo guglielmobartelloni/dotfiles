@@ -12,9 +12,6 @@ end
 
 local gorun = Terminal:new({ cmd = "go run main.go", })
 
-function _gorun_toggle()
-  gorun:toggle()
-end
 
 nnoremap("<leader><leader>", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
@@ -23,9 +20,8 @@ nnoremap("<leader>dl", "<cmd>Telescope diagnostics<cr>")
 nnoremap("<leader>rr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>tt", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>gg", "<cmd>lua _lazygit_toggle()<cr>")
---nnoremap("<leader>tt", "<cmd>lua _gorun_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
-nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
+--nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
 
 
