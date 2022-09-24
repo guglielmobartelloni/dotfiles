@@ -6,6 +6,11 @@ vim.g.indentLine_setConceal = 0
 
 -- Setup snippets located in .config/nvim/snippets
 require("luasnip.loaders.from_snipmate").lazy_load()
+-- local ls = require("luasnip")
+-- ls.config.set_config{
+--     history = true,
+--     enable_autosnippets=true,
+-- }
 
 
 
