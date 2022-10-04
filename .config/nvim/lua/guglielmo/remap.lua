@@ -26,6 +26,11 @@ nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 
 nnoremap("<leader>oo", ":VimtexCompile<cr>:!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 
+nnoremap("<leader>ss", function()
+    vim.o.spell = not vim.o.spell
+    print("spell: " .. tostring(vim.o.spell))
+end)
+
 
 
 

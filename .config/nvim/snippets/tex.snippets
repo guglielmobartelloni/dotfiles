@@ -80,3 +80,73 @@ snippet a' à
 
 snippet o' ò
 	ò
+
+snippet ee esponente
+	^{$1}$0
+
+snippet phi phi
+	\varphi
+snippet lambda lambda
+	\lambda
+snippet cc contenuto
+	\subseteq
+snippet mu mu
+	\mu
+snippet >= ge
+	\ge
+snippet <= le
+	\le
+snippet != diverso
+	\neq
+snippet ss segnato
+	\bar
+
+snippet __ bold
+	\\textbf{$1}$0
+
+snippet dimo dimostrazione
+	\\begin{proof}
+		${1:${VISUAL}}
+	\\end{proof}
+	$0
+# Enumerate
+snippet enum
+	\begin{enumerate}
+		\item ${1}
+	\end{enumerate}
+	$0
+# Itemize
+snippet item
+	\begin{itemize}
+		\item ${1}
+	\end{itemize}
+	$0
+
+snippet plot plot block
+	\\begin{tikzpicture}
+	\\begin{axis}[
+		xmin = $1, xmax = $2,
+		ymin = $3, ymax = $4]
+		\\addplot[
+			domain = $1:$2,
+			samples = 200,
+			smooth,
+			thick,
+			blue,
+		] {$5};
+	\\end{axis}
+	\\end{tikzpicture}
+
+snippet sis sistema
+	\\begin{equation}
+		\\begin{cases}
+		  $1\\\\
+		  $2
+		\\end{cases}\,.
+	\\end{equation}
+	$0
+
+snippet [] eval dell'integrale
+	\\Eval{[$1]}{$2}{$3} $0
+
+

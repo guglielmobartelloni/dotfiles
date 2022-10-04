@@ -44,3 +44,5 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.completeopt={"menu", "menuone", "noselect"}
 
+vim.opt.spelllang = "it"
+vim.o.spell = true
