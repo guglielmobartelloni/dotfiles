@@ -46,3 +46,8 @@ vim.opt.completeopt={"menu", "menuone", "noselect"}
 
 vim.opt.spelllang = "it"
 -- vim.o.spell = true
+--
+
+-- Remove command space
+vim.o.ls = 0
+vim.o.ch = 0

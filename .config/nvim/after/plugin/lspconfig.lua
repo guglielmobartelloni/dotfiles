@@ -13,6 +13,7 @@ require"lspconfig".gopls.setup{
         vim.keymap.set("n", "ga", vim.lsp.buf.code_action , {buffer = 0})
     end,
 }
+
 -- Setup variables.
 local cmp = require'cmp'
 local luasnip = require'luasnip'
