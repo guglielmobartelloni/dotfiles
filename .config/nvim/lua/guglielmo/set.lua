@@ -44,10 +44,15 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.completeopt={"menu", "menuone", "noselect"}
 
+
 vim.opt.spelllang = "it"
 -- vim.o.spell = true
---
+
+-- Remove the comment on new line FUCK
+vim.api.nvim_exec([[
+autocmd FileType * set formatoptions-=o
+]], false)
 
 -- Remove command space
-vim.o.ls = 0
-vim.o.ch = 0
+-- vim.o.ls = 0
+-- vim.o.ch = 0

@@ -31,6 +31,7 @@ nnoremap("<leader>ss", function()
     print("spell: " .. tostring(vim.o.spell))
 end)
 
+-- vim.keymap.set({ "i", "s" }, "<C-i>", function() require'luasnip'.extras.select_choice() end, { desc = "LuaSnip backward jump" })
 
 
 
