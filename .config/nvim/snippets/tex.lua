@@ -456,6 +456,38 @@ cs( "se e solo", fmt([[
      end, {}),
  }),"auto")
 
+
+ cs( 
+	{ trig = "([%a_]+)([%d_])", regTrig = true, hidden = false },
+	fmt(
+		[[
+        {}_{}{}
+    ]],
+		{
+            d(1, function(_, snip)
+                return sn(1, t(snip.captures[1]))
+            end),
+            d(2, function(_, snip)
+                return sn(1, t(snip.captures[2]))
+            end),
+            i(3)
+		}
+	), "auto") 
+
+ cs( 
+	{ trig = "([%w^{}]+)/", regTrig = true, hidden = false },
+	fmt(
+		[[
+        \frac{{{}}}{{{}}}{}
+    ]],
+		{
+            d(1, function(_, snip)
+                return sn(1, t(snip.captures[1]))
+            end),
+            i(2),
+            i(3),
+		}
+	), "auto") 
 -- End Refactoring --
 
 return snippets, autosnippets
