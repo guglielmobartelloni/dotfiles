@@ -125,3 +125,4 @@ function ghpr() {
 }
 
 alias mp3="yt-dlp -f 'ba' -x --audio-format mp3"
+alias aria="aria2c --max-connection-per-server=16 --min-split-size=1M"

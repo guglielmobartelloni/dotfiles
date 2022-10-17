@@ -117,7 +117,7 @@ cs( "in", fmt([[
  i(1,""))) 
 
 cs( "intg", fmt([[
-	\int_{{{}}}^{{{}}} {{{}}} \\: d{} {}
+	\int_{{{}}}^{{{}}} {{{}}} \: d{} {}
     ]],
     {
         i(1,""),
@@ -265,7 +265,23 @@ cs( "phi", fmt([[
         }
  ), "auto") 
 
-cs( "lambda", fmt([[
+cs( "aaa", fmt([[
+	\alpha{}
+        ]],
+        {
+            i(1,""),
+        }
+ ), "auto") 
+
+cs( "bbb", fmt([[
+	\beta{}
+        ]],
+        {
+            i(1,""),
+        }
+ ), "auto") 
+
+cs( "lll", fmt([[
 	\lambda{}
         ]],
         {
@@ -309,7 +325,7 @@ cs( [[!=]], fmt([[
 cs( 
 	{ trig = "([%w_]+)sss", regTrig = true, hidden = false },
     fmt([[
-        bar{{{}}} {}
+        \bar{{{}}} {}
         ]],
     {
         d(1, function(_, snip)
@@ -399,8 +415,7 @@ cs( "siss", fmt([[
 		\end{{cases}}\,.
 	\end{{equation}}
 
-    {}
-
+{}
         ]],
         {
             i(1,""),
@@ -439,7 +454,7 @@ cs( "pm", fmt([[
  ), "auto")
 
 cs( "se e solo", fmt([[
-  	\\Leftrightarrow {}
+  	\Leftrightarrow {}
     ]],
         {
             i(1,""),
@@ -456,12 +471,22 @@ cs( "se e solo", fmt([[
      end, {}),
  }),"auto")
 
+ cs([[--]], fmt([[
+\underbrace{{{}}}_\text{{{}}}
+ ]],{
+     f(function(_, snip)
+         -- TM_SELECTED_TEXT is a table to account for multiline-selections.
+         -- In this case only the first line is inserted.
+         return snip.env.TM_SELECTED_TEXT[1] or {}
+     end, {}),
+     i(1,"commento")
+ }),"auto")
 
  cs( 
 	{ trig = "([%a_]+)([%d_])", regTrig = true, hidden = false },
 	fmt(
 		[[
-        {}_{}{}
+        {}_{}
     ]],
 		{
             d(1, function(_, snip)
@@ -470,7 +495,6 @@ cs( "se e solo", fmt([[
             d(2, function(_, snip)
                 return sn(1, t(snip.captures[2]))
             end),
-            i(3)
 		}
 	), "auto") 
 
@@ -488,6 +512,23 @@ cs( "se e solo", fmt([[
             i(3),
 		}
 	), "auto") 
+
+cs( "mtx", fmt([[
+\begin{{pmatrix}}
+{} & {} & {}\\
+{} & {} & {}
+\end{{pmatrix}}
+  ]],
+        {
+            i(1,""),
+            i(2,""),
+            i(3,""),
+            i(4,""),
+            i(5,""),
+            i(6,""),
+        }
+ ), "auto")
+
 -- End Refactoring --
 
 return snippets, autosnippets
