@@ -24,14 +24,23 @@ nnoremap("<leader>gg", "<cmd>lua _lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 --nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
-nnoremap("<leader>oo", ":VimtexCompile<cr>:!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
+nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
+nnoremap("<leader>olc", ":VimtexCompile<cr>")
+nnoremap("<leader>ole", ":VimtexCompile<cr>")
+nnoremap("<leader>jj", function()
+  vim.fn.setreg("+", require("jsonpath").get())
+end)
 
 nnoremap("<leader>ss", function()
     vim.o.spell = not vim.o.spell
     print("spell: " .. tostring(vim.o.spell))
 end)
 
--- vim.keymap.set({ "i", "s" }, "<C-i>", function() require'luasnip'.extras.select_choice() end, { desc = "LuaSnip backward jump" })
 
+vim.api.nvim_exec([[
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+]], false)
+-- vim.keymap.set({ "i", "s" }, "<C-i>", function() require'luasnip'.extras.select_choice() end, { desc = "LuaSnip backward jump" })
 
 

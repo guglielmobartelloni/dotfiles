@@ -91,247 +91,242 @@ cs( "//", fmt([[
 { i(1,""), i(2,"") }), "auto") 
 
 cs( "sum", fmt([[
-        \sum^{{{}}}_{{{}}} {}
+        \sum^{{{}}}_{{{}}} 
     ]],
-{ i(1,""), i(2,""), i(3,"") }), "auto") 
+{ i(1,""), i(2,"")}), "auto") 
 
 cs( 
-	{ trig = "lim([%w_]+)", regTrig = true, hidden = false },
+	"limxy",
 	fmt(
 		[[
-        \lim_{{ {} \to {} }} {}
+        \lim_{{ (x,y) \to ({},{}) }} 
+    ]],
+		{
+            i(1,"0"),
+            i(2,"0")
+		}
+	),
+    "auto"
+) 
+
+cs( 
+	{ trig = "lim([%w_])", regTrig = true, hidden = false },
+	fmt(
+		[[
+        \lim_{{ {} \to {} }} 
     ]],
 		{
             d(1, function(_, snip)
                 return sn(1, i(1, snip.captures[1]))
             end),
             i(2, [[+\infty]]),
-			i(3),
 		}
 	)
 ) 
 
 cs( "in", fmt([[
-        \in {}
+        \in 
     ]],
- i(1,""))) 
+    {})) 
 
 cs( "intg", fmt([[
-	\int_{{{}}}^{{{}}} {{{}}} \: d{} {}
+	\int_{{{}}}^{{{}}} {{{}}} \: d{} 
     ]],
     {
         i(1,""),
         i(2,""),
         i(3,"f(x)"),
         i(4,"x"),
-        i(5,""),
     }),"auto") 
 
 cs( "defn", fmt([[
         \defn{{{}}}{{{}}}
 
-        {}
         ]],
         {
             i(1,""),
             i(2,""),
-            i(3,""),
         }
  ), "auto") 
 
 cs( "bbb", fmt([[
-        \textbf{{{}}} {}
+        \textbf{{{}}} 
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ), "auto") 
 
 cs( "lemma", fmt([[
         \lemma{{{}}}{{{}}}
 
-        {}
         ]],
         {
             i(1,""),
             i(2,""),
-            i(3,""),
+        }
+ ), "auto") 
+
+cs( "propo", fmt([[
+        \proposizione{{{}}}{{{}}}
+
+        ]],
+        {
+            i(1,""),
+            i(2,""),
         }
  ), "auto") 
 
 cs( "theo", fmt([[
         \teorema{{{}}}{{{}}}
 
-        {}
         ]],
         {
             i(1,""),
             i(2,""),
-            i(3,""),
         }
  ), "auto") 
 
 cs( "sec", fmt([[
         \section{{{}}}
 
-        {}
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ))
  
 cs( "subsec", fmt([[
         \subsection{{{}}}
 
-        {}
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ))
 
 cs( "->", fmt([[
-        \rightarrow {}
+        \rightarrow 
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
  
 cs( "RR", fmt([[
-        \mathbb{{R}}{}
+        \mathbb{{R}}
 ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "NN", fmt([[
-        \mathbb{{N}}{}
+        \mathbb{{N}}
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "CC", fmt([[
-        \mathbb{{C}}{}
+        \mathbb{{C}}
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "ppp", fmt([[
-        \forall {}
+        \forall 
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "sq", fmt([[
-        \sqrt{{{}}}{}
+        \sqrt{{{}}}
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ), "auto") 
 
 cs( 
 	{ trig = "([%w_]*)ee", regTrig = true, hidden = false },
     fmt([[
-        {}^{{{}}}{}
+        {}^{{{}}}
         ]],
     {
         d(1, function(_, snip)
             return sn(1, t(snip.captures[1]))
         end),
         i(2,""),
-        i(3,""),
     }
  ), "auto") 
 
 cs( "phi", fmt([[
-	\varphi{}
+	\varphi
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "aaa", fmt([[
-	\alpha{}
+	\alpha
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
-cs( "bbb", fmt([[
-	\beta{}
+cs( "BBB", fmt([[
+	\beta
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "lll", fmt([[
-	\lambda{}
+	\lambda
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( "$$", fmt([[
-	${}${}
+	${}$
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ), "auto") 
 
 cs( [[>=]], fmt([[
-	\ge {}
+	\ge 
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( [[<=]], fmt([[
-	\le {}
+	\le 
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
  
 cs( [[!=]], fmt([[
-	\neq {}
+	\neq 
         ]],
         {
-            i(1,""),
         }
  ), "auto") 
 
 cs( 
 	{ trig = "([%w_]+)sss", regTrig = true, hidden = false },
     fmt([[
-        \bar{{{}}} {}
+        \bar{{{}}} 
         ]],
     {
         d(1, function(_, snip)
             return sn(1, t(snip.captures[1]))
         end),
-        i(2,""),
     }
  ), "auto") 
 
@@ -340,12 +335,10 @@ cs( "dimo", fmt([[
         {}    
 	\end{{proof}}
 
-    {}
 
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ))
 
@@ -354,12 +347,10 @@ cs( "enum", fmt([[
 		\item {}
 	\end{{enumerate}}
 
-    {}
 
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ), "auto")
 
@@ -368,12 +359,10 @@ cs( "itemi", fmt([[
 		\item {}
 	\end{{itemize}}
 
-    {}
 
         ]],
         {
             i(1,""),
-            i(2,""),
         }
  ), "auto")
 
@@ -392,7 +381,6 @@ cs( "plot", fmt([[
 	\end{{axis}}
 	\end{{tikzpicture}}
 
-    {}
 
         ]],
         {
@@ -403,7 +391,6 @@ cs( "plot", fmt([[
             rep(1),
             rep(2),
             i(5,"equazione"),
-            i(6),
         }
  ), "auto")
  
@@ -415,49 +402,43 @@ cs( "siss", fmt([[
 		\end{{cases}}\,.
 	\end{{equation}}
 
-{}
         ]],
         {
             i(1,""),
             i(2,""),
-            i(3,""),
         }
  ), "auto")
  
  
 cs( "[]", fmt([[
-	\Eval{{[{}]}}{{{}}}{{{}}} {}
+	\Eval{{[{}]}}{{{}}}{{{}}} 
         ]],
         {
             i(1,"dentro"),
             i(2,"a"),
             i(3,"b"),
-            i(4,""),
         }
  ), "auto")
  
 cs( "==", fmt([[
-      	\overset{{\text{{{}}}}}{{=}}{}
+      	\overset{{\text{{{}}}}}{{=}}
   ]],
         {
             i(1,"spiega"),
-            i(2,""),
         }
  ), "auto")
 
 cs( "pm", fmt([[
-      	\pm {}
+      	\pm 
   ]],
         {
-            i(1,""),
         }
  ), "auto")
 
 cs( "se e solo", fmt([[
-  	\Leftrightarrow {}
+  	\Leftrightarrow 
     ]],
         {
-            i(1,""),
         }
  ), "auto")
 
@@ -502,14 +483,13 @@ cs( "se e solo", fmt([[
 	{ trig = "([%w^{}]+)/", regTrig = true, hidden = false },
 	fmt(
 		[[
-        \frac{{{}}}{{{}}}{}
+        \frac{{{}}}{{{}}}
     ]],
 		{
             d(1, function(_, snip)
                 return sn(1, t(snip.captures[1]))
             end),
             i(2),
-            i(3),
 		}
 	), "auto") 
 
@@ -528,6 +508,112 @@ cs( "mtx", fmt([[
             i(6,""),
         }
  ), "auto")
+
+cs( "scsc", fmt([[\bullet]], {}), "auto")
+
+cs( "<>", fmt([[\langle {} \rangle]],
+        {
+            i(1,""),
+        }
+ ), "auto")
+
+cs( "xi", fmt([[x_i]],
+        {
+        }
+ ), "auto")
+
+cs( "xn", fmt([[x_n]],
+        {
+        }
+ ), "auto")
+
+cs( "RN", fmt([[
+        \mathbb{{R}}^{{n}}
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "{{}}", fmt([[
+\{{{}\}}
+        ]],
+        {
+            i(1)
+        }
+ ), "auto") 
+
+
+cs( "cont", fmt([[
+\subseteq
+        ]],
+        {
+        }
+ ), "") 
+ 
+cs( "ttt", fmt([[
+\theta
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "rrr", fmt([[
+\rho
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "epsi", fmt([[
+\varepsilon
+        ]],
+        {
+        }
+ ), "") 
+
+cs( "delta", fmt([[
+\delta
+        ]],
+        {
+        }
+ ), "") 
+
+cs( "sot", fmt([[
+\subset
+        ]],
+        {
+        }
+ ), "") 
+
+cs( "fxy", fmt([[
+f(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "ccc", fmt([[
+\begin{{cases}}
+    {} & \text{{se ${}$}} \\
+    {} & \text{{se ${}$}}
+\end{{cases}}
+        ]],
+        {
+            i(1),
+            i(2),
+            i(3),
+            i(4),
+        }
+ ), "auto") 
+ 
+
+cs( "ex", fmt([[
+\exists
+        ]],
+        {
+        }
+ ), "auto") 
+ 
 
 -- End Refactoring --
 
