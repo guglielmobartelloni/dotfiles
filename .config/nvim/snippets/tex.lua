@@ -50,19 +50,19 @@ local function cs(trigger, nodes, opts) --{{{
 		end
 
 		-- set autocmd for each keymap
-		if opts ~= "auto" then
-			for _, keymap in ipairs(keymaps) do
-				vim.api.nvim_create_autocmd("BufEnter", {
-					pattern = pattern,
-					group = group,
-					callback = function()
-						vim.keymap.set(keymap[1], keymap[2], function()
-							ls.snip_expand(snippet)
-						end, { noremap = true, silent = true, buffer = true })
-					end,
-				})
-			end
-		end
+		-- if opts ~= "auto" then
+		-- 	for _, keymap in ipairs(keymaps) do
+		-- 		vim.api.nvim_create_autocmd("BufEnter", {
+		-- 			pattern = pattern,
+		-- 			group = group,
+		-- 			callback = function()
+		-- 				vim.keymap.set(keymap[1], keymap[2], function()
+		-- 					ls.snip_expand(snippet)
+		-- 				end, { noremap = true, silent = true, buffer = true })
+		-- 			end,
+		-- 		})
+		-- 	end
+		-- end
 	end
 
 	table.insert(target_table, snippet) -- insert snippet into appropriate table

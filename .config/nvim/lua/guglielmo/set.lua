@@ -57,3 +57,11 @@ autocmd FileType * set formatoptions-=o
 -- Remove command space
 -- vim.o.ls = 0
 -- vim.o.ch = 0
+
+-- Remember last cursor position
+--
+vim.api.nvim_exec([[ augroup remember
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+]], false)

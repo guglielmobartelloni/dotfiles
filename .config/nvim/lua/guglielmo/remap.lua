@@ -31,6 +31,19 @@ nnoremap("<leader>jj", function()
   vim.fn.setreg("+", require("jsonpath").get())
 end)
 
+set_json_path = true
+nnoremap("<leader>jo", function()
+    if set_json_path then
+        vim.opt_local.winbar = "%{%v:lua.require'jsonpath'.get()%}"
+        set_json_path=false
+    else
+        vim.opt_local.winbar = ""
+        set_json_path=true
+    end
+end)
+
+
+
 nnoremap("<leader>ss", function()
     vim.o.spell = not vim.o.spell
     print("spell: " .. tostring(vim.o.spell))
