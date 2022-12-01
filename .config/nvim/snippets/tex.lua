@@ -124,6 +124,11 @@ cs(
 	)
 ) 
 
+cs( "ni", fmt([[
+        \ni 
+    ]],
+    {})) 
+
 cs( "in", fmt([[
         \in 
     ]],
@@ -205,6 +210,14 @@ cs( "subsec", fmt([[
         }
  ))
 
+cs( "=>", fmt([[
+        \xrightarrow[]{{\text{{{}}}}}
+        ]],
+        {
+            i(1),
+        }
+ ), "auto") 
+ 
 cs( "->", fmt([[
         \rightarrow 
         ]],
@@ -277,6 +290,13 @@ cs( "aaa", fmt([[
 
 cs( "BBB", fmt([[
 	\beta
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "ggg", fmt([[
+	\gamma
         ]],
         {
         }
@@ -603,6 +623,135 @@ cs( "ccc", fmt([[
             i(2),
             i(3),
             i(4),
+        }
+ ), "auto") 
+ 
+
+cs( "dy", fmt([[
+\partial y
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "dx", fmt([[
+\partial x
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "ddf", fmt([[
+\partial^{{2}} f
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "df", fmt([[
+\partial f
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "sin", fmt([[
+\sin
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "cos", fmt([[
+\cos
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "perche", fmt([[
+perché
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "piu", fmt([[
+più
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "E'", fmt([[
+È
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "proprieta", fmt([[
+proprietà
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+cs( "da'", fmt([[
+dà
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+cs( "poiche", fmt([[
+poiché
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+cs( "semplicita", fmt([[
+semplicità
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "e'", fmt([[
+è
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+cs( "nabla", fmt([[
+\nabla
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+cs( "...", fmt([[
+\ldots
+        ]],
+        {
+        }
+ ), "auto") 
+ 
+
+cs( "cm", fmt([[
+\circ
+        ]],
+        {
         }
  ), "auto") 
  

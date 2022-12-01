@@ -1,4 +1,5 @@
 local nnoremap = require("guglielmo.keymap").nnoremap
+local nmap = require("guglielmo.keymap").nmap
 local inoremap = require("guglielmo.keymap").inoremap
 require("toggleterm").setup{
     direction = "float",
@@ -26,7 +27,10 @@ nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 
 nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 nnoremap("<leader>olc", ":VimtexCompile<cr>")
-nnoremap("<leader>ole", ":VimtexCompile<cr>")
+
+-- Change local compilation for vimtex
+nmap("<leader>oll", "<plug>(vimtex-toggle-main)")
+
 nnoremap("<leader>jj", function()
   vim.fn.setreg("+", require("jsonpath").get())
 end)
