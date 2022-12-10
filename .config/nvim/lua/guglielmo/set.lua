@@ -65,3 +65,6 @@ vim.api.nvim_exec([[ augroup remember
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 ]], false)
+
+vim.opt.relativenumber = true
+

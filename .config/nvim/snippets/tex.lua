@@ -605,6 +605,48 @@ cs( "sot", fmt([[
         }
  ), "") 
 
+cs( "f__xx", fmt([[
+f_{{xx}}(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "f__xy", fmt([[
+f_{{xy}}(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "f__yy", fmt([[
+f_{{yy}}(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "f__yx", fmt([[
+f_{{yx}}(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "fxxy", fmt([[
+f_x(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "fyxy", fmt([[
+f_y(x,y)
+        ]],
+        {
+        }
+ ), "auto") 
+
 cs( "fxy", fmt([[
 f(x,y)
         ]],

@@ -26,13 +26,14 @@ nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 --nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
 nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
-nnoremap("<leader>olc", ":VimtexCompile<cr>")
+nnoremap("<leader>olc", ":VimtexCompile<cr>:set wrap<cr>")
 
 -- Change local compilation for vimtex
 nmap("<leader>oll", "<plug>(vimtex-toggle-main)")
 
 nnoremap("<leader>jj", function()
   vim.fn.setreg("+", require("jsonpath").get())
+  print('JsonPath saved to the clipboard')
 end)
 
 set_json_path = true
@@ -60,4 +61,8 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 ]], false)
 -- vim.keymap.set({ "i", "s" }, "<C-i>", function() require'luasnip'.extras.select_choice() end, { desc = "LuaSnip backward jump" })
 
+vim.api.nvim_exec([[
+noremap <expr> j (v:count? 'j' : 'gj')
+noremap <expr> k (v:count? 'k' : 'gk')
+]], false)
 
