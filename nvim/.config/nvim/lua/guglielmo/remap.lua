@@ -1,6 +1,6 @@
 local nnoremap = require("guglielmo.keymap").nnoremap
 local nmap = require("guglielmo.keymap").nmap
-local inoremap = require("guglielmo.keymap").inoremap
+-- local inoremap = require("guglielmo.keymap").inoremap
 require("toggleterm").setup{
     direction = "float",
 }
@@ -12,12 +12,13 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-local gorun = Terminal:new({ cmd = "go run main.go", })
+-- local gorun = Terminal:new({ cmd = "go run main.go", })
 
 
 nnoremap("<leader><leader>", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fr", "<cmd>Telescope lsp_references<cr>")
+nnoremap("<leader>ff", vim.lsp.buf.format)
+-- nnoremap("<leader>fr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>dl", "<cmd>Telescope diagnostics<cr>")
 nnoremap("<leader>rr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>tt", "<cmd>ToggleTerm<cr>")
@@ -31,13 +32,13 @@ nnoremap("<leader>olc", ":VimtexCompile<cr>:set wrap<cr>")
 -- Change local compilation for vimtex
 nmap("<leader>oll", "<plug>(vimtex-toggle-main)")
 
-nnoremap("<leader>jj", function()
+nnoremap("<leader>ojc", function()
   vim.fn.setreg("+", require("jsonpath").get())
   print('JsonPath saved to the clipboard')
 end)
 
-set_json_path = true
-nnoremap("<leader>jo", function()
+local set_json_path = true
+nnoremap("<leader>oj", function()
     if set_json_path then
         vim.opt_local.winbar = "%{%v:lua.require'jsonpath'.get()%}"
         set_json_path=false
@@ -65,4 +66,29 @@ vim.api.nvim_exec([[
 noremap <expr> j (v:count? 'j' : 'gj')
 noremap <expr> k (v:count? 'k' : 'gk')
 ]], false)
+
+
+vim.api.nvim_exec([[
+fun! StartREPL(repl)
+  execute 'terminal '.a:repl
+  setlocal nonumber
+  let t:term_id = b:terminal_job_id
+  wincmd p
+  execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
+endfun
+set splitright
+noremap <silent> <leader>tt :vsplit<bar>:call StartREPL('ipython')<CR>
+]], false)
+
+
+local is_diagnostics_active = true
+nnoremap("<leader>dt", function()
+    if is_diagnostics_active then
+        vim.diagnostic.enable()
+        is_diagnostics_active=false
+    else
+        vim.diagnostic.disable()
+        is_diagnostics_active=true
+    end
+end)
 

@@ -134,6 +134,15 @@ cs( "in", fmt([[
     ]],
     {})) 
 
+cs( "iint", fmt([[
+	\iint_{} {{{}}} \: d{} 
+    ]],
+    {
+        i(1,"R"),
+        i(2,"f(x)"),
+        i(3,"x"),
+    }),"auto") 
+
 cs( "intg", fmt([[
 	\int_{{{}}}^{{{}}} {{{}}} \: d{} 
     ]],
@@ -218,8 +227,16 @@ cs( "=>", fmt([[
         }
  ), "auto") 
  
+ 
 cs( "->", fmt([[
         \rightarrow 
+        ]],
+        {
+        }
+ ), "auto") 
+
+cs( "<->", fmt([[
+        \leftrightarrow 
         ]],
         {
         }
@@ -794,6 +811,27 @@ cs( "cm", fmt([[
 \circ
         ]],
         {
+        }
+ ), "auto") 
+ 
+
+cs( "ref", fmt([[
+\begin{{equation}} \label{{{}}}
+{}
+\end{{equation}}
+        ]],
+        {
+            i(1),
+            i(2),
+        }
+ ), "") 
+ 
+
+cs( "()", fmt([[
+\left({}\right)
+        ]],
+        {
+            i(1)
         }
  ), "auto") 
  
