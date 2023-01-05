@@ -26,8 +26,8 @@ window:
     y: 15
 
   decorations: none
-  # startup_mode: Windowed
-  # dynamic_title: true
+  startup_mode: Fullscreen
+  dynamic_title: true
 
 ## scrolling
   history: 10000
