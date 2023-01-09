@@ -8,7 +8,7 @@ require("toggleterm").setup{
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
-function _lazygit_toggle()
+function Lazygit_toggle()
   lazygit:toggle()
 end
 
@@ -21,8 +21,8 @@ nnoremap("<leader>ff", vim.lsp.buf.format)
 -- nnoremap("<leader>fr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>dl", "<cmd>Telescope diagnostics<cr>")
 nnoremap("<leader>rr", "<cmd>Telescope lsp_references<cr>")
-nnoremap("<leader>tt", "<cmd>ToggleTerm<cr>")
-nnoremap("<leader>gg", "<cmd>lua _lazygit_toggle()<cr>")
+nnoremap("<leader>tt", "<cmd>TroubleToggle<cr>")
+nnoremap("<leader>gg", "<cmd>lua Lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
 --nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
@@ -68,17 +68,17 @@ noremap <expr> k (v:count? 'k' : 'gk')
 ]], false)
 
 
-vim.api.nvim_exec([[
-fun! StartREPL(repl)
-  execute 'terminal '.a:repl
-  setlocal nonumber
-  let t:term_id = b:terminal_job_id
-  wincmd p
-  execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
-endfun
-set splitright
-noremap <silent> <leader>tt :vsplit<bar>:call StartREPL('ipython')<CR>
-]], false)
+-- vim.api.nvim_exec([[
+-- fun! StartREPL(repl)
+--   execute 'terminal '.a:repl
+--   setlocal nonumber
+--   let t:term_id = b:terminal_job_id
+--   wincmd p
+--   execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
+-- endfun
+-- set splitright
+-- noremap <silent> <leader>tt :vsplit<bar>:call StartREPL('ipython')<CR>
+-- ]], false)
 
 
 local is_diagnostics_active = true

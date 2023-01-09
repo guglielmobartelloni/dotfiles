@@ -68,12 +68,22 @@ return require('packer').startup(function(use)
 
     }
 
-    use 'jpalardy/vim-slime'
+    -- use 'jpalardy/vim-slime'
 
     use 'ThePrimeagen/harpoon'
 
     use 'j-hui/fidget.nvim'
 
     use 'ray-x/lsp_signature.nvim'
+
+    use { 'echasnovski/mini.pairs', branch = 'stable', config = function() require("mini.pairs").setup() end }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup()
+        end
+    }
 
 end)
