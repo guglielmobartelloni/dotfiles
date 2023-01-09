@@ -24,7 +24,6 @@ nnoremap("<leader>rr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>tt", "<cmd>TroubleToggle<cr>")
 nnoremap("<leader>gg", "<cmd>lua Lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
---nnoremap("<F7>", function() require("knap").toggle_autopreviewing() end)
 
 nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 nnoremap("<leader>olc", ":VimtexCompile<cr>:set wrap<cr>")
@@ -60,25 +59,11 @@ vim.api.nvim_exec([[
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 ]], false)
--- vim.keymap.set({ "i", "s" }, "<C-i>", function() require'luasnip'.extras.select_choice() end, { desc = "LuaSnip backward jump" })
 
 vim.api.nvim_exec([[
 noremap <expr> j (v:count? 'j' : 'gj')
 noremap <expr> k (v:count? 'k' : 'gk')
 ]], false)
-
-
--- vim.api.nvim_exec([[
--- fun! StartREPL(repl)
---   execute 'terminal '.a:repl
---   setlocal nonumber
---   let t:term_id = b:terminal_job_id
---   wincmd p
---   execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
--- endfun
--- set splitright
--- noremap <silent> <leader>tt :vsplit<bar>:call StartREPL('ipython')<CR>
--- ]], false)
 
 
 local is_diagnostics_active = true
