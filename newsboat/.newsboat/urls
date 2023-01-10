@@ -24,7 +24,11 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCgREucssIfY9e0Iy3yhse8w "Yo
 https://mastodon.social/@elonjet.rss "Mastodon"
 https://nitter.net/josevalim/rss "Twitter"
 https://nitter.net/thechrismcleod/rss "Twitter"
-https://news.ycombinator.com/rss
+https://news.ycombinator.com/rss "Tech" "News"
 https://lukesmith.xyz/index.xml
-https://words.filippo.io/dispatches/rss/
-https://geti2p.net/it/feed/blog/atom
+https://words.filippo.io/dispatches/rss/ "Tech" "News"
+https://geti2p.net/it/feed/blog/atom "Tech" "News"
+https://lobste.rs/rss "Tech" "News"
+https://rss.nytimes.com/services/xml/rss/nyt/World.xml "News"
+https://www.ilpost.it/mondo/feed "News"
+https://www.ilpost.it/europa/feed "News"
