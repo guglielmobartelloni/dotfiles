@@ -33,3 +33,4 @@ The config has many features that I collected over the years.
 The main reason I use neovim is for `Telescope` which lets you fuzzy find anything.
 The other reason is `lsp` and `mason` that can install extensions very easly crossplatform like `vscode`.
 
+Another huge selling point is the ability to create super powerful snippets with `Luasnip` which enabled me to take math notes in real time with latex (see [latex notes](https://github.com/guglielmobartelloni/appunti-analisi-2))
