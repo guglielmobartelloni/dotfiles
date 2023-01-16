@@ -27,4 +27,5 @@ that's it.
 
 ## Neovim setup
 
-I use the lua config and `packer` package manager. First time you open the editor you have to install all the dependencies to do so, open the `packer.lua` file and use the command `:source %` after that the `PackerInstall` command will be available to the editor.
+I use the lua config and `packer` package manager. First time you open the editor you have to install all the dependencies, to do so, open the `packer.lua` file and use the command `:source %` after run `PackerInstall`.
+
