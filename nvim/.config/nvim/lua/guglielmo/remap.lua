@@ -24,6 +24,8 @@ nnoremap("<leader>rr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>tt", "<cmd>TroubleToggle<cr>")
 nnoremap("<leader>gg", "<cmd>lua Lazygit_toggle()<cr>")
 nnoremap("<leader>op", "<cmd>NvimTreeToggle<cr>")
+nnoremap("<leader>joo", "<cmd>lua require('jdtls').organize_imports()<cr>")
+
 
 nnoremap("<leader>oo", ":!zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
 nnoremap("<leader>olc", ":VimtexCompile<cr>:set wrap<cr>")
