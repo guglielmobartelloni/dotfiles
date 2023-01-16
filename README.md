@@ -9,6 +9,7 @@
 - Terminal emulator: alacritty
 - RSS Reader: newsboat
 - Dotfile manager: stow
+- Git client: lazygit
 - OS: Mac OS
 
 
