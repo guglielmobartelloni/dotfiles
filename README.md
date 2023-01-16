@@ -29,3 +29,7 @@ that's it.
 
 I use the lua config and `packer` package manager. First time you open the editor you have to install all the dependencies, to do so, open the `packer.lua` file and use the command `:source %` after run `PackerInstall`.
 
+The config has many features that I collected over the years.
+The main reason I use neovim is for `Telescope` which lets you fuzzy find anything.
+The other reason is `lsp` and `mason` that can install extensions very easly crossplatform like `vscode`.
+
