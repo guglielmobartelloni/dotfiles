@@ -90,4 +90,7 @@ return require('packer').startup(function(use)
 
     use 'mfussenegger/nvim-jdtls'
 
+    use 'tpope/vim-projectionist'
+    use 'andyl/vim-projectionist-elixir'
+
 end)

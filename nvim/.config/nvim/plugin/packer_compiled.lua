@@ -171,6 +171,11 @@ _G.packer_plugins = {
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -195,6 +200,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -221,6 +231,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
+  },
+  ["vim-projectionist"] = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/vim-projectionist",
+    url = "https://github.com/tpope/vim-projectionist"
+  },
+  ["vim-projectionist-elixir"] = {
+    loaded = true,
+    path = "/Users/samurai/.local/share/nvim/site/pack/packer/start/vim-projectionist-elixir",
+    url = "https://github.com/andyl/vim-projectionist-elixir"
   },
   vimtex = {
     loaded = true,
