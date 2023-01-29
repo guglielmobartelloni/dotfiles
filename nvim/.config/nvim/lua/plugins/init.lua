@@ -1,21 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = " "
-vim.g.maploaclleader = " "
-
-require('lazy').setup({
-    -- Packer can manage itself
+return {
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
@@ -104,24 +87,5 @@ require('lazy').setup({
     'tpope/vim-projectionist',
     'andyl/vim-projectionist-elixir',
 
-})
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maploaclleader = " "
-
-require('lazy').setup('plugins')
-
-
-require('guglielmo')
+}
