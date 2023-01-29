@@ -1,7 +1,9 @@
 sw_volume: 100
 audio_device_state:1:CoreAudio
 audio_device_state:1:my_fifo
-state: stop
+state: pause
+current: 617
+time: 14.912000
 random: 1
 repeat: 0
 single: 0
@@ -609,4 +611,24 @@ playlist_begin
 596:21 Savage & Metro Boomin/Savage Mode/06 Real Nigga.opus
 597:21 Savage & Metro Boomin/Savage Mode/07 Mad High.opus
 598:21 Savage & Metro Boomin/Savage Mode/08 Feel It.opus
+599:Metro Boomin/HEROES & VILLAINS/01 On Time (with John Legend).mp3
+600:Metro Boomin/HEROES & VILLAINS/02 Superhero (Heroes & Villains) [with Future & Chris Brown].mp3
+601:Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3
+602:Metro Boomin/HEROES & VILLAINS/04 Raindrops (Insane) [with Travis Scott].mp3
+603:Metro Boomin/HEROES & VILLAINS/05 Umbrella (with 21 Savage & Young Nudy).mp3
+604:Metro Boomin/HEROES & VILLAINS/06 Trance (with Travis Scott & Yong Thug).mp3
+605:Metro Boomin/HEROES & VILLAINS/07 Around Me (feat. Don Toliver).mp3
+606:Metro Boomin/HEROES & VILLAINS/08 Metro Spider (with Young Thug).mp3
+607:Metro Boomin/HEROES & VILLAINS/09 I Can't Save You (Interlude) [with Future & feat Don. Toliver].mp3
+608:Metro Boomin/HEROES & VILLAINS/10 Creepin' (with The Weeknd & 21 Savage].mp3
+609:Metro Boomin/HEROES & VILLAINS/11 Niagara Falls (Foot or 2) [with Travis Scott & 21 Savage].mp3
+610:Metro Boomin/HEROES & VILLAINS/12 Walk Em Down (Don't Kill Civilians) [with 21 Savage & feat Mustafa].mp3
+611:Metro Boomin/HEROES & VILLAINS/13 Lock On Me (with Travis Scott & Future].mp3
+612:Metro Boomin/HEROES & VILLAINS/14 Feel The Fiyaaaah (with A$AP Rocky & feat. Takeoff).mp3
+613:Metro Boomin/HEROES & VILLAINS/15 All The Money (with Gunna) [Bonus].mp3
+614:Metro Boomin/HEROES & VILLAINS/04 Raindrops (Insane) [with Travis Scott].mp3
+615:Metro Boomin/HEROES & VILLAINS/05 Umbrella (with 21 Savage & Young Nudy).mp3
+616:Metro Boomin/HEROES & VILLAINS/06 Trance (with Travis Scott & Yong Thug).mp3
+617:Metro Boomin/HEROES & VILLAINS/07 Around Me (feat. Don Toliver).mp3
+618:Metro Boomin/HEROES & VILLAINS/08 Metro Spider (with Young Thug).mp3
 playlist_end

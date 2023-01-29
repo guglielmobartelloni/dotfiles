@@ -3822,3 +3822,53 @@ Jan 17 01:36 : exception: Failed to open "CoreAudio" (osx); The operation couldn
 Jan 17 01:38 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/08 Pain.mp3"
 Jan 17 01:38 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
 Jan 17 01:42 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Stuck to U.1.mp3"
+Jan 27 13:28 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jan 27 13:28 : player: played "21 Savage & Metro Boomin/Savage Mode/02 No Heart.opus"
+Jan 27 13:28 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 27 13:28 : config: option 'auto_resample' on line 33 was not recognized
+Jan 27 13:28 : config: option 'use_mmap' on line 34 was not recognized
+Jan 27 13:32 : player: played "21 Savage & Metro Boomin/Savage Mode/02 No Heart.opus"
+Jan 27 13:38 : player: played "Metro Boomin/HEROES & VILLAINS/02 Superhero (Heroes & Villains) [with Future & Chris Brown].mp3"
+Jan 27 13:40 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/05 The Beginning & the End.mp3"
+Jan 27 13:46 : player: played "Drake/Her Loss/10 Pussy & Millions (feat. Travis Scott).mp3"
+Jan 27 13:48 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Dean Martin Steaks.1.mp3"
+Jan 27 13:50 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Half Moon Mornings.mp3"
+Jan 27 13:53 : player: played "Jack Harlow/Come Home the Kids Miss You/04 First Class.mp3"
+Jan 27 13:56 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/04 Stained Glass.mp3"
+Jan 27 13:58 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/05 My First Offense.mp3"
+Jan 27 14:01 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/10 JJ Flash.mp3"
+Jan 27 14:04 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/05 Therapy.mp3"
+Jan 27 14:06 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/05 Big Syke (feat. Meyhem Lauren & Boldy James).mp3"
+Jan 28 12:09 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 12:17 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 12:20 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 12:22 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/13 Find a Way.mp3"
+Jan 28 12:25 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/04 Seize Power.mp3"
+Jan 28 12:27 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/10 Ventilation (Instrumental).mp3"
+Jan 28 14:10 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 14:10 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 28 14:10 : config: option 'auto_resample' on line 33 was not recognized
+Jan 28 14:10 : config: option 'use_mmap' on line 34 was not recognized
+Jan 28 14:14 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 14:18 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/10 Throw in the Towel.1.mp3"
+Jan 28 14:21 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/06 Whale Watching.mp3"
+Jan 28 14:26 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/04 The Essence.mp3"
+Jan 28 14:29 : player: played "The Alchemist/This Thing of Ours/02 TV Dinners.mp3"
+Jan 28 14:31 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Bbs (Instrumental).mp3"
+Jan 28 14:32 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/14 This Isn't Good.mp3"
+Jan 28 14:35 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Universal Studios (feat. Wiz Khalifa).mp3"
+Jan 28 14:38 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/14 The Meeting.1.mp3"
+Jan 28 14:39 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/23 The Kosmos, Part 1_ Lift Off.mp3"
+Jan 28 14:42 : player: played "21 Savage & Metro Boomin/Savage Mode II/02 Runnin.opus"
+Jan 28 14:48 : player: played "Kanye West/Donda (Deluxe)/25 Pure Souls.opus"
+Jan 28 14:53 : player: played "Metro Boomin/HEROES & VILLAINS/03 Too Many Nights (feat. Don Toliver & with Future).mp3"
+Jan 28 14:55 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/10 Gun Check.mp3"
+Jan 28 14:57 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/07 Ventilation.mp3"
+Jan 28 15:00 : player: played "Drake/Her Loss/13 Jumbotron Shit Poppin.mp3"
+Jan 28 15:02 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/08 How It Goes.mp3"
+Jan 28 15:07 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/01 Fight Club - Alchemist Mix.mp3"
+Jan 28 15:08 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/15 God Loves You.mp3"
+Jan 28 15:12 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/11 It's a Craze.mp3"
+Jan 28 15:13 : output: Failed to play on "CoreAudio" (osx): Unable to restart audio output after pause
+Jan 28 15:17 : player: played "Metro Boomin/HEROES & VILLAINS/06 Trance (with Travis Scott & Yong Thug).mp3"
+Jan 28 15:20 : player: played "A.G._O.C._The Alchemist/We All (Alchemist Remix)/04 Big Beat.mp3"
