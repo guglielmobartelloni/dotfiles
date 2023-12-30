@@ -1,0 +1,1 @@
+[{"url": "postgresql://localhost/example_dev", "name": "posway_db"}, {"url": "postgresql://localhost/area", "name": "area"}]
