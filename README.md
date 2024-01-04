@@ -1,0 +1,2 @@
+# Current setup with chezmoi
+
