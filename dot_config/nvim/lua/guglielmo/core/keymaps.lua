@@ -30,6 +30,10 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+-- Quickfix list
+keymap.set("n", "[q", ":cprev<CR>", { desc = "Prev quickfix" })
+keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix" })
+
 -- keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 -- keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
