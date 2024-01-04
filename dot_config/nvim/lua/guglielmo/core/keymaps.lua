@@ -31,6 +31,7 @@ keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 -- Quickfix list
+keymap.set("n", "<leader>q", ":copen<CR>", { desc = "Open quickfix list" })
 keymap.set("n", "[q", ":cprev<CR>", { desc = "Prev quickfix" })
 keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix" })
 
