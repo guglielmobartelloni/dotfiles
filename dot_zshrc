@@ -68,6 +68,7 @@ alias vim="nvim"
 alias l="lazygit"
 alias disp="displayplacer 'id:AFBA4B0E-92E5-B3AC-0857-D6964E3302DB res:1920x1080 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(213,1080) degree:0'"
 alias pippone="/opt/homebrew/Caskroom/miniconda/base/envs/hacking/bin/pip"
+alias c="chezmoi"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
