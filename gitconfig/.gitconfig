@@ -5,7 +5,7 @@
 	required = true
 [user]
 	name = samoorai
-	email = hirotakatech@gmail.com
+	email = bartelloni.guglielmo@gmail.com
 [gpg]
 	program = gpg1
 [commit]
