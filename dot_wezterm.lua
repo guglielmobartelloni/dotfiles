@@ -30,7 +30,7 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 12
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
 	{
 		key = "|",
@@ -43,15 +43,30 @@ config.keys = {
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
-	{
-		key = "a",
-		mods = "LEADER|CTRL",
-		action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
-	},
+	-- {
+	-- 	key = "b",
+	-- 	mods = "LEADER|CTRL",
+	-- 	action = wezterm.action.SendKey({ key = "b", mods = "CTRL" }),
+	-- },
 	{ key = "h", mods = "ALT", action = act({ ActivatePaneDirection = "Left" }) },
 	{ key = "l", mods = "ALT", action = act({ ActivatePaneDirection = "Right" }) },
 	{ key = "k", mods = "ALT", action = act({ ActivatePaneDirection = "Up" }) },
 	{ key = "j", mods = "ALT", action = act({ ActivatePaneDirection = "Down" }) },
+	{
+		key = "b",
+		mods = "LEADER",
+		action = act.ActivateTabRelative(-1),
+	},
+	{
+		key = "n",
+		mods = "LEADER",
+		action = act.ActivateTabRelative(1),
+	},
+	{
+		key = "c",
+		mods = "LEADER",
+		action = act.SpawnTab("CurrentPaneDomain"),
+	},
 	{ key = "1", mods = "ALT", action = act({ ActivateTab = 0 }) },
 	{ key = "2", mods = "ALT", action = act({ ActivateTab = 1 }) },
 	{ key = "3", mods = "ALT", action = act({ ActivateTab = 2 }) },
