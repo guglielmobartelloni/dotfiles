@@ -14,12 +14,16 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Macchiato (Gogh)'
-config.default_prog = { 'powershell' }
+
+-- If on windows set powershell as default prompt
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+    config.default_prog = { 'powershell' }
+end
 config.font = wezterm.font 'JetBrains Mono'
 config.font_size = 10.0
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
-config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
 config.keys = {
     {
         key = '|',
