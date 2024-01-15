@@ -21,7 +21,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = { 'powershell' }
 end
 config.font = wezterm.font 'JetBrains Mono'
-config.font_size = 10.0
+config.font_size = 16.0
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
