@@ -29,6 +29,27 @@ config.font = wezterm.font_with_fallback({
 
 config.font_size = 12
 
+local dimmer = { brightness = 0.05 }
+
+config.background = {
+	-- This is the deepest/back-most layer. It will be rendered first
+	{
+		source = {
+			File = "/Users/samurai/Pictures/term-back.jpg",
+		},
+		-- The texture tiles vertically but not horizontally.
+		-- When we repeat it, mirror it so that it appears "more seamless".
+		-- An alternative to this is to set `width = "100%"` and have
+		-- it stretch across the display
+		repeat_x = "Mirror",
+		hsb = dimmer,
+		-- When the viewport scrolls, move this layer 10% of the number of
+		-- pixels moved by the main viewport. This makes it appear to be
+		-- further behind the text.
+		attachment = { Parallax = 0.1 },
+	},
+}
+
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
