@@ -1,23 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-local get_random_entry = function(tbl)
-	local keys = {}
-	for key, _ in ipairs(tbl) do
-		table.insert(keys, key)
-	end
-	local randomKey = keys[math.random(1, #keys)]
-	return tbl[randomKey]
-end
-
-local get_font = function(fonts)
-	local family = get_random_entry(fonts)
-	return wezterm.font_with_fallback({
-		{ family = family, weight = "Bold" },
-		{ family = "Symbols Nerd Font Mono" },
-	})
-end
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -38,14 +21,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "powershell" }
 end
 
-config.font = get_font({
+config.font = wezterm.font_with_fallback({
 	"JetBrains Mono",
 	"Fira Code Nerd Font Mono",
 	"Fira Code",
-	"DengXian",
 })
 
-config.font_size = 20
+config.font_size = 12
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
