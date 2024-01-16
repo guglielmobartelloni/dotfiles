@@ -16,9 +16,11 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
 
+local background_path = "/Users/samurai/Pictures/term-back.jpg"
 -- If on windows set powershell as default prompt
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_prog = { "powershell" }
+    background_path = "C:\\Users\\U479488\\" .. "Pictures\\term-back.jpg"
 end
 
 config.skip_close_confirmation_for_processes_named = {
@@ -47,7 +49,7 @@ config.background = {
     -- This is the deepest/back-most layer. It will be rendered first
     {
         source = {
-            File = "/Users/samurai/Pictures/term-back.jpg",
+            File = background_path
         },
         -- The texture tiles vertically but not horizontally.
         -- When we repeat it, mirror it so that it appears "more seamless".
