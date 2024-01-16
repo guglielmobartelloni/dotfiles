@@ -3,9 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    config = function()
-        vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
-            desc = "Toggle Spectre"
-        })
-    end
+    keys = {
+        { '<leader>os', function() require("spectre").toggle() end, desc = 'Open Spectre' },
+    }
 }
