@@ -41,7 +41,7 @@ config.font = wezterm.font_with_fallback({
     "Fira Code",
 })
 
-config.font_size = 12
+config.font_size = 13
 
 local dimmer = { brightness = 0.05 }
 

@@ -79,6 +79,12 @@ return {
             on_attach = on_attach,
         })
 
+        -- configure html server
+        lspconfig["bashls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         -- configure typescript server with plugin
         lspconfig["tsserver"].setup({
             capabilities = capabilities,
@@ -128,6 +134,12 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+
+        lspconfig["elixirls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            cmd = { "/Users/samurai/Documents/language_server.sh"}
         })
 
         -- configure python server
