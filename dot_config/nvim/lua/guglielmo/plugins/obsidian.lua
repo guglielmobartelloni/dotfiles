@@ -45,11 +45,11 @@ return {
             -- Mutually exclusive with 'prepend_note_id' and 'prepend_note_path'.
             use_path_only = false,
         },
-        templates = {
-            subdir = "Templates",
-            date_format = "%Y-%m-%d-%a",
-            time_format = "%H:%M",
-        },
+        -- templates = {
+        --     subdir = "Templates",
+        --     date_format = "%Y-%m-%d-%a",
+        --     time_format = "%H:%M",
+        -- },
     },
     keys = {
         { "<leader>vv", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Opens Obsidian vault searching for files" } },

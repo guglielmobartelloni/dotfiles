@@ -5,6 +5,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 local act = wezterm.action
+
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
 if wezterm.config_builder then
@@ -12,6 +13,10 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+
+config.window_close_confirmation = 'NeverPrompt'
+config.window_decorations = "RESIZE"
+
 
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
@@ -65,7 +70,7 @@ config.background = {
 }
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
     {
         key = "|",

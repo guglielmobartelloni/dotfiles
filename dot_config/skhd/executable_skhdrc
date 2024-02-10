@@ -1,4 +1,4 @@
-# alt - return: /Applications/Alacritty.app/Contents/MacOS/alacritty
+alt - return: wezterm start
 # alt + q: yabai -m window --close
 #alt - e: /Applications/kitty.app/Contents/MacOS/kitty --single-instance -e nnn -e -H ~
 # alt - y: emacsclient -c --eval '(dired "~")'
@@ -25,7 +25,7 @@
 # alt - l : yabai -m window --focus east
 
 alt - f : yabai -m window --toggle zoom-fullscreen
-# alt + shift - f : yabai -m window --toggle native-fullscreen
+alt + shift - f : wezterm start -- yazi
 # alt - space : yabai -m window --toggle float --grid 4:4:1:1:2:2; sketchybar --trigger window_focus
 # alt - p : yabai -m window --toggle border --toggle pip
 
