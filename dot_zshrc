@@ -47,8 +47,7 @@ function gara() {
 }
 
 function cfv() {
-    cd ~/.config/nvim
-    nvim init.lua
+    chezmoi edit -a ~/.config/nvim
 }
 function tm(){
     tmux new -s $(pwd | sed 's/.*\///g')
