@@ -4,6 +4,7 @@ antidote load
 
 
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
 
 # Select and checkout PR
 function ghpr() {
