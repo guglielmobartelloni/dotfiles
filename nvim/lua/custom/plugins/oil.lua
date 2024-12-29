@@ -1,22 +1,34 @@
 return {
-  'stevearc/oil.nvim',
-  dependencies = {
-    { 'nvim-treesitter/nvim-treesitter' },
-    { 'nvim-tree/nvim-web-devicons', lazy = true },
+  {
+    'stevearc/oil.nvim',
+    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    config = function()
+      CustomOilBar = function()
+        local path = vim.fn.expand '%'
+        path = path:gsub('oil://', '')
+
+        return '  ' .. vim.fn.fnamemodify(path, ':.')
+      end
+
+      require('oil').setup {
+        columns = { 'icon' },
+        win_options = {
+          winbar = '%{v:lua.CustomOilBar()}',
+        },
+        view_options = {
+          show_hidden = true,
+          is_always_hidden = function(name, _)
+            local folder_skip = { 'dev-tools.locks', 'dune.lock', '_build' }
+            return vim.tbl_contains(folder_skip, name)
+          end,
+        },
+      }
+
+      -- Open parent directory in current window
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+      -- Open parent directory in floating window
+      vim.keymap.set('n', '<space>-', require('oil').toggle_float)
+    end,
   },
-  opts = {
-    default_file_explorer = true,
-    view_options = {
-      show_hidden = true,
-      is_always_hidden = function(name, _)
-        return vim.startswith(name, '.DS_Store')
-      end,
-    },
-    float = { padding = 4 },
-  },
-  config = function(_, opts)
-    local oil = require 'oil'
-    oil.setup(opts)
-    vim.keymap.set('n', '-', oil.open, { desc = 'Open parent directory' })
-  end,
 }

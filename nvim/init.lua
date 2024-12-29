@@ -1,3 +1,6 @@
+local options = { noremap = true }
+vim.keymap.set('i', 'jk', '<Esc>', options)
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -183,11 +186,11 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+      require('which-key').setup { notify = false }
 
       -- Document existing key chains
       require('which-key').register {
@@ -212,14 +215,19 @@ require('lazy').setup({
     event = 'VimEnter',
     branch = '0.1.x',
     dependencies = {
+      {
+        'nvim-telescope/telescope-live-grep-args.nvim',
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = '^1.0.0',
+      },
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
         -- `build` is used to run some command when the plugin is installed/updated.
         -- This is only run then, not every time Neovim starts up.
-        build =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
 
         -- `cond` is a condition used to determine whether this plugin should be
         -- installed and loaded.
@@ -230,7 +238,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = false },
+      { 'nvim-tree/nvim-web-devicons', enabled = false },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -274,6 +282,7 @@ require('lazy').setup({
       -- Enable telescope extensions, if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'live_grep_args')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -282,7 +291,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>fs', require('telescope').extensions.live_grep_args.live_grep_args, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -313,8 +322,97 @@ require('lazy').setup({
     end,
   },
 
-  { 'nvim-java/nvim-java' },
-  { 'https://gitlab.com/oysandvik94/sonarlint.nvim', branch="remove_nvim_jdts_dependency"},
+  {
+    {
+      'neovim/nvim-lspconfig',
+      dependencies = { --[[ 'mfussenegger/nvim-jdtls' ]]
+      },
+      opts = {
+        setup = {
+          -- jdtls = function(_, opts)
+          --   vim.api.nvim_create_autocmd('FileType', {
+          --     pattern = 'java',
+          --     callback = function()
+          --       require('lazyvim.util').on_attach(function(_, buffer)
+          --         vim.keymap.set('n', '<leader>di', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { buffer = buffer, desc = 'Organize Imports' })
+          --         vim.keymap.set('n', '<leader>dt', "<Cmd>lua require'jdtls'.test_class()<CR>", { buffer = buffer, desc = 'Test Class' })
+          --         vim.keymap.set('n', '<leader>dn', "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", { buffer = buffer, desc = 'Test Nearest Method' })
+          --         vim.keymap.set('v', '<leader>de', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { buffer = buffer, desc = 'Extract Variable' })
+          --         vim.keymap.set('n', '<leader>de', "<Cmd>lua require('jdtls').extract_variable()<CR>", { buffer = buffer, desc = 'Extract Variable' })
+          --         vim.keymap.set('v', '<leader>dm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { buffer = buffer, desc = 'Extract Method' })
+          --         vim.keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', { buffer = buffer, desc = 'Format' })
+          --       end)
+          --
+          --       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+          --       -- vim.lsp.set_log_level('DEBUG')
+          --       local workspace_dir = '/Users/u479488/.workspace/' .. project_name -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+          --       local config = {
+          --         -- The command that starts the language server
+          --         -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
+          --         cmd = {
+          --
+          --           'java', -- or '/path/to/java17_or_newer/bin/java'
+          --           -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+          --
+          --           '-javaagent:/Users/u479488/Downloads/lombok.jar',
+          --           -- '-Xbootclasspath/a:/home/jake/.local/share/java/lombok.jar',
+          --           '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+          --           '-Dosgi.bundles.defaultStartLevel=4',
+          --           '-Declipse.product=org.eclipse.jdt.ls.core.product',
+          --           '-Dlog.protocol=true',
+          --           '-Dlog.level=ALL',
+          --           -- '-noverify',
+          --           '-Xms1g',
+          --           '--add-modules=ALL-SYSTEM',
+          --           '--add-opens',
+          --           'java.base/java.util=ALL-UNNAMED',
+          --           '--add-opens',
+          --           'java.base/java.lang=ALL-UNNAMED',
+          --           '-jar',
+          --           vim.fn.glob '/Users/u479488/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
+          --           -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
+          --           -- Must point to the                                                     Change this to
+          --           -- eclipse.jdt.ls installation                                           the actual version
+          --
+          --           '-configuration',
+          --           '/Users/u479488/.local/share/nvim/mason/share/jdtls/config',
+          --           -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
+          --           -- Must point to the                      Change to one of `linux`, `win` or `mac`
+          --           -- eclipse.jdt.ls installation            Depending on your system.
+          --
+          --           -- See `data directory configuration` section in the README
+          --           '-data',
+          --           workspace_dir,
+          --         },
+          --
+          --         -- This is the default if not provided, you can remove it. Or adjust as needed.
+          --         -- One dedicated LSP server & client will be started per unique root_dir
+          --         root_dir = require('jdtls.setup').find_root { '.git', 'mvnw', 'gradlew' },
+          --
+          --         -- Here you can configure eclipse.jdt.ls specific settings
+          --         -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+          --         -- for a list of options
+          --         settings = {
+          --           java = {},
+          --         },
+          --         handlers = {
+          --           ['language/status'] = function(_, result)
+          --             -- print(result)
+          --           end,
+          --           ['$/progress'] = function(_, result, ctx)
+          --             -- disable progress updates.
+          --           end,
+          --         },
+          --       }
+          --       require('jdtls').start_or_attach(config)
+          --     end,
+          --   })
+          --   return true
+          -- end,
+        },
+      },
+    },
+  },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -449,11 +547,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        jdtls= {},
         -- clangd = {},
         -- gopls = {},
-        astro = {},
         bashls = {},
+        denols = {},
         efm = { filetypes = { 'sh' } },
         -- pyright = {},
         -- rust_analyzer = {},
@@ -465,6 +562,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -548,7 +646,7 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { "prettierd", "prettier" } },
+        -- javascript = { { "prettierd", "prettier" } },
       },
     },
   },
@@ -612,7 +710,7 @@ require('lazy').setup({
         formatting = {
           fields = { 'kind', 'abbr', 'menu' },
           format = function(entry, vim_item)
-            local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 50 } (entry, vim_item)
+            local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 50 }(entry, vim_item)
             local strings = vim.split(kind.kind, '%s', { trimempty = true })
             kind.kind = ' ' .. (strings[1] or '') .. ' '
             kind.menu = '    (' .. (strings[2] or '') .. ')'
@@ -675,17 +773,15 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'catppuccin/nvim',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    opts = {
-      color_overrides = {
-        mocha = {
-          base = '#000000',
-          mantle = '#000000',
-          crust = '#000000',
-        },
-      }
-    },
+    opts = { color_overrides = {
+      mocha = {
+        base = '#000000',
+        mantle = '#000000',
+        crust = '#000000',
+      },
+    } },
     config = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -772,6 +868,12 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'nvim-java/nvim-java',
+    lazy = true,
+    ft = { 'java' }, -- Only load for Java files
+  },
+
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- put them in the right spots if you want.
@@ -812,31 +914,38 @@ require('lazy').setup({
   },
 })
 
+require('lspconfig').jdtls.setup {}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
 --
-require('sonarlint').setup {
-  server = {
-    cmd = {
-      'sonarlint-language-server',
-      -- Ensure that sonarlint-language-server uses stdio channel
-      '-stdio',
-      '-analyzers',
-      -- paths to the analyzers you need, using those for python and java in this example
-      vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarpython.jar',
-      vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarcfamily.jar',
-      vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarjava.jar',
-    },
-  },
-  filetypes = {
-    -- Tested and working
-    'python',
-    'cpp',
-    'java',
-  },
-}
+-- require('sonarlint').setup {
+--   server = {
+--     cmd = {
+--       'sonarlint-language-server',
+--       -- Ensure that sonarlint-language-server uses stdio channel
+--       '-stdio',
+--       '-analyzers',
+--       -- paths to the analyzers you need, using those for python and java in this example
+--       vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarpython.jar',
+--       vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarcfamily.jar',
+--       vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarjava.jar',
+--     },
+--   },
+--   filetypes = {
+--     -- Tested and working
+--     'python',
+--     'cpp',
+--     'java',
+--   },
+-- }
 
--- require('sonarlint').setup({})
+local function map(mode, lhs, rhs, opts)
+  if opts then
+    options = vim.tbl_extend('force', { noremap = true, silent = true }, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
+end
 
+map('n', '<leader>jt', ':JavaTestRunCurrentClass<CR>')
