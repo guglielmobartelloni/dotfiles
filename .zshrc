@@ -75,6 +75,17 @@ function mc(){
     mvn clean compile -s ~/.m2/settings.xml
 }
 
+function t() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+
 alias mp3="yt-dlp -f 'ba' -x --audio-format mp3 -o '/tmp/%(title)s.%(ext)s'"
 alias aria="aria2c -j 30 --max-connection-per-server=16 --min-split-size=1M"
 alias vim="nvim"
