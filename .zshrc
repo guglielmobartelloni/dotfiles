@@ -24,7 +24,7 @@ source ${zsh_plugins}.zsh
 eval "$(starship init zsh)"
 
 function rep() {
-    cd $(find ~/Documents/repos -maxdepth 1 -type d | fzf)
+    sesh connect $(find ~/Documents/repos -maxdepth 1 -type d | fzf)
 }
 
 # Select and checkout PR
