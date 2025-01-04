@@ -1,11 +1,8 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/Users/u479488/.zsh/completions:"* ]]; then export FPATH="/Users/u479488/.zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":~/.zsh/completions:"* ]]; then export FPATH="~/.zsh/completions:$FPATH"; fi
 export PATH="$HOME/.brew/bin:$PATH"
 export PATH="/Applications:$PATH"
-source "$HOME/.antidote/antidote.zsh"
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-# source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 
@@ -110,5 +107,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-
-. "/Users/u479488/.deno/env"
