@@ -2,7 +2,8 @@
 if [[ ":$FPATH:" != *":~/.zsh/completions:"* ]]; then export FPATH="~/.zsh/completions:$FPATH"; fi
 export PATH="$HOME/.brew/bin:$PATH"
 export PATH="/Applications:$PATH"
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+# source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source ~/.antidote/antidote.zsh
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 
@@ -113,7 +114,7 @@ alias e='emacs -nw'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

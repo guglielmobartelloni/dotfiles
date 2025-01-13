@@ -4,10 +4,8 @@ return {
   keys = {
     {
       '<leader>ot',
-      function()
-        require('trouble').toggle()
-      end,
-      desc = 'Open Trouble',
+      '<cmd>Trouble diagnostics toggle<cr>',
+      desc = 'Diagnostics (Trouble)',
     },
     -- { '<leader>yw', function() require('trouble').open('workspace_diagnostics') end, desc = desc('Workspace diagnostics') },
     -- { '<leader>yd', function() require('trouble').open('document_diagnostics') end,  desc = desc('Document diagnostics') },

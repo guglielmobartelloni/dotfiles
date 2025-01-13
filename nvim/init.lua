@@ -427,6 +427,7 @@ require('lazy').setup({
     },
     config = function()
       require('java').setup()
+      -- vim.keymap.set("n", "<leader>tl", require('java').runner.built_in.toggle_logs, {silent = true})
       -- Brief Aside: **What is LSP?**
       --
       -- LSP is an acronym you've probably heard, but might not understand what it is.
@@ -857,6 +858,16 @@ require('lazy').setup({
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
+
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            scope_incremental = '<Tab>',
+            node_decremental = '<S-Tab>',
+          },
+        },
       }
 
       -- There are additional nvim-treesitter modules that you can use to interact
