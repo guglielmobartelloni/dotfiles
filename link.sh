@@ -1,13 +1,26 @@
+#!/bin/bash
+
+# Get the current working directory
 PWD=$(pwd)
-rm -rf ~/.config/nvim
-rm -rf ~/.config/kitty
-rm -rf ~/.tmux.conf
-rm -rf ~/.zsh_plugins.txt
-rm -rf ~/.zshrc
-rm -rf ~/.config/sesh
-ln -s "$PWD/nvim" ~/.config/nvim
-ln -s "$PWD/kitty" ~/.config/kitty
-ln -s "$PWD/.tmux.conf" ~/.tmux.conf
-ln -s "$PWD/.zsh_plugins.txt" ~/.zsh_plugins.txt
-ln -s "$PWD/.zshrc" ~/.zshrc
-ln -s "$PWD/sesh" ~/.config/sesh
+
+# Define an array of target paths and their corresponding source paths
+targets=(
+    "$HOME/.config/nvim:$PWD/nvim"
+    "$HOME/.config/kitty:$PWD/kitty"
+    "$HOME/.tmux.conf:$PWD/.tmux.conf"
+    "$HOME/.zsh_plugins.txt:$PWD/.zsh_plugins.txt"
+    "$HOME/.zshrc:$PWD/.zshrc"
+    "$HOME/.config/sesh:$PWD/sesh"
+)
+
+# Remove existing files and directories
+for item in "${targets[@]}"; do
+    IFS=":" read -r target source <<< "$item"
+    rm -rf "$target"
+done
+
+# Create symbolic links
+for item in "${targets[@]}"; do
+    IFS=":" read -r target source <<< "$item"
+    ln -s "$source" "$target"
+done
