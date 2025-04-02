@@ -1,0 +1,14 @@
+[[session]]
+name = "tmux config"
+path = "~/"
+startup_command = "nvim ~/.tmux.conf"
+
+[[session]]
+name = "downloads"
+path = "~/Downloads"
+startup_command = "open ."
+
+[[session]]
+name = "tmp"
+path = "/tmp/"
+startup_command = "open ."
