@@ -2,3 +2,4 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 agkozak/zsh-z
 clarketm/zsh-completions
+romkatv/powerlevel10k
