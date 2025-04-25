@@ -12,3 +12,8 @@ startup_command = "open ."
 name = "tmp"
 path = "/tmp/"
 startup_command = "open ."
+
+[[session]]
+name = "tappypop"
+path = "~/.ssh"
+startup_command = "ssh tappypop"

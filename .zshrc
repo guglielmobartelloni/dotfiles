@@ -102,7 +102,7 @@ export PATH=$PATH:/Users/samurai/.cargo/bin/
 export EDITOR='nvim'
 export VULNBOX="10.60.3.1"
 
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -118,5 +118,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh" 
