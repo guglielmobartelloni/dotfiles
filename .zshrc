@@ -109,7 +109,7 @@ export PATH=$PATH:/Users/samurai/.cargo/bin/
 export EDITOR='nvim'
 export VULNBOX="10.60.3.1"
 
-eval "$(direnv hook zsh)"
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
