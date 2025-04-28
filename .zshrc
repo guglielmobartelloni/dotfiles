@@ -31,6 +31,14 @@ source ${zsh_plugins}.zsh
 
 eval "$(starship init zsh)"
 
+if command -v tmux &> /dev/null; then
+  tmux list-sessions -F "#{session_name} #{session_idle}" | while read name idle; do
+    if [ "$idle" -gt 5400 ]; then  # 30 minutes
+      tmux kill-session -t "$name"
+    fi
+  done
+fi
+
 function rep() {
     sesh connect $(find ~/Documents/repos -maxdepth 1 -type d | fzf)
 }
