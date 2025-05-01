@@ -1,0 +1,11 @@
+---
+- name: Setup SSH config from encrypted vault
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Write decrypted .ssh folder
+      ansible.builtin.copy:
+        src: "./.ssh/"
+        dest: "~/.ssh"
+        mode: '0600'
