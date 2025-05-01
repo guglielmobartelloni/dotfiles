@@ -357,6 +357,9 @@ require('lazy').setup({
       servers = {
         lua_ls = {},
         bashls = {},
+        gleam = {},
+        ansiblels = {},
+        lexical = {}
       },
     },
     config = function(_, opts)
