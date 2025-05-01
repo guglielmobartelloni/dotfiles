@@ -20,9 +20,8 @@ fi
 
 ### ─── Plugin Manager: Antidote ─────────────────────────────────────────────────
 source ~/.antidote/antidote.zsh
-zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
+zsh_plugins=~/.zsh_plugins
 [[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
-fpath=(/path/to/antidote/functions $fpath)
 autoload -Uz antidote
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
   antidote bundle <${zsh_plugins}.txt >|${zsh_plugins}.zsh
@@ -30,7 +29,7 @@ fi
 source ${zsh_plugins}.zsh
 
 ### ─── Prompt and Shell Enhancements ────────────────────────────────────────────
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
 
@@ -77,5 +76,5 @@ if command -v tmux &> /dev/null; then
   done
 fi
 
-### ─── Powerlevel10k Prompt Config ─────────────────────────────────────────────
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
