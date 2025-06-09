@@ -81,6 +81,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', {
+  desc = 'Prev buffer',
+})
+
+vim.keymap.set('n', ']b', '<cmd>bnext<cr>', {
+  desc = 'Next buffer',
+})
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -161,6 +168,22 @@ require('lazy').setup({
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    keys = {
+      {
+        '[g',
+        function()
+          require('gitsigns').prev_hunk()
+        end,
+        desc = 'Format document',
+      },
+      {
+        ']g',
+        function()
+          require('gitsigns').next_hunk()
+        end,
+        desc = 'Format document',
+      },
+    },
     opts = {
       signs = {
         add = { text = '+' },
@@ -359,7 +382,8 @@ require('lazy').setup({
         bashls = {},
         gleam = {},
         ansiblels = {},
-        lexical = {}
+        lexical = {},
+        gopls = {},
       },
     },
     config = function(_, opts)
@@ -821,30 +845,30 @@ local gotoid = fun.win_gotoid
 local getid = fun.win_getid
 
 local function openTerminal()
-	if fun.bufexists(te_buf) ~= 1 then
-		cmd("au TermOpen * setlocal nonumber norelativenumber signcolumn=no")
-		cmd("sp | winc J | res 10 | te")
-		te_win_id = getid()
-		te_buf = fun.bufnr('%')
-	elseif gotoid(te_win_id) ~= 1 then
-		cmd("sb " .. te_buf .. "| winc J | res 10")
-		te_win_id = getid()
-	end
-	cmd("startinsert")
+  if fun.bufexists(te_buf) ~= 1 then
+    cmd 'au TermOpen * setlocal nonumber norelativenumber signcolumn=no'
+    cmd 'sp | winc J | res 10 | te'
+    te_win_id = getid()
+    te_buf = fun.bufnr '%'
+  elseif gotoid(te_win_id) ~= 1 then
+    cmd('sb ' .. te_buf .. '| winc J | res 10')
+    te_win_id = getid()
+  end
+  cmd 'startinsert'
 end
 
 local function hideTerminal()
-	if gotoid(te_win_id) == 1 then
-		cmd("hide")
-	end
+  if gotoid(te_win_id) == 1 then
+    cmd 'hide'
+  end
 end
 
 function ToggleTerminal()
-	if gotoid(te_win_id) == 1 then
-		hideTerminal()
-	else
-		openTerminal()
-	end
+  if gotoid(te_win_id) == 1 then
+    hideTerminal()
+  else
+    openTerminal()
+  end
 end
 
 vim.keymap.set('n', '<leader>t', ToggleTerminal, { desc = 'Toggle terminal' })
