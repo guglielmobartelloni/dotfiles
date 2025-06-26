@@ -383,6 +383,7 @@ require('lazy').setup({
         gleam = {},
         ansiblels = {},
         lexical = {},
+        zls = {},
         gopls = {},
       },
     },
@@ -728,7 +729,15 @@ require('lazy').setup({
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
-
+        textobjects = {
+          move = {
+            enable = true,
+            goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer' },
+            goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer' },
+            goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer' },
+            goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer' },
+          },
+        },
         incremental_selection = {
           enable = true,
           keymaps = {
