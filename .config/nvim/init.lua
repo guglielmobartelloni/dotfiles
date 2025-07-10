@@ -390,7 +390,6 @@ require('lazy').setup({
       },
     },
     config = function(_, opts)
-      require('java').setup()
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -760,10 +759,6 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'nvim-java/nvim-java',
-    ft = { 'java' },
-  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -845,7 +840,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 
-map('n', '<leader>jt', ':JavaTestRunCurrentClass<CR>')
 local te_buf = nil
 local te_win_id = nil
 

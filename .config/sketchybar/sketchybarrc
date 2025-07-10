@@ -1,0 +1,117 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/colors.sh"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+
+sketchybar --bar position=top height=40 blur_radius=10 #color=$BAR_COLOR 
+
+##### Changing Defaults #####
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="JetBrainsMono Nerd Font:Regular:15.0"
+  label.font="JetBrainsMono Nerd Font:Semibold:15.0"
+  icon.color=$WHITE
+  label.color=$WHITE
+  icon.padding_left=10
+  icon.padding_right=0
+  label.padding_left=10
+  label.padding_right=10
+  background.color=0x00000000
+  background.corner_radius=5
+  background.height=24
+)
+sketchybar --default "${default[@]}"
+
+##### Left Items #####
+
+sketchybar --add event aerospace_workspace_change
+
+sketchybar --add item window_title left \
+           --set window_title icon=\
+                               label.font="JetBrainsMono Nerd Font:Semibold:14.0" \
+                               icon.padding_left=0 \
+                               width=dynamic \
+                               updates=on \
+                               update_freq=1 \
+                               script="$PLUGIN_DIR/aerospace_window_title.sh" \
+          --subscribe window_title aerospace_workspace_change
+
+sketchybar --add item front_app left \
+           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh"  \
+           --subscribe front_app front_app_switched
+
+sketchybar --add item music left \
+           --set music \
+             script="$PLUGIN_DIR/music.sh" \
+             icon= \
+             label.padding_left=0 \
+             icon.padding_right=8 \
+             label.color=0xffa6e3a1 \
+             icon.color=0xffa6e3a1 \
+             click_script="open -a Spotify" \
+             update_freq=2 \
+             drawing=off \    # start hidden
+           --subscribe music media_change
+
+
+##### Right Items #####
+
+sketchybar \
+  --add item clock right \
+    --set clock \
+      update_freq=10 \
+      icon= \
+      script="$PLUGIN_DIR/clock.sh" \
+  \
+  --add item weather right \
+    --set weather \
+      script="$PLUGIN_DIR/weather.sh" \
+      icon= \
+      update_freq=300 \
+      label.padding_left=0 \
+      icon.padding_right=8 \
+      label.color=$WHITE \
+      icon.color=$WHITE \
+      click_script="open -a Weather" \
+      drawing=on \
+  \
+  --add item volume right \
+    --set volume \
+      script="$PLUGIN_DIR/volume.sh" \
+      padding_right=4 \
+      --subscribe volume volume_change \
+  \
+  --add item battery right \
+    --set battery \
+      update_freq=120 \
+      script="$PLUGIN_DIR/battery.sh" \
+      padding_right=4 \
+      --subscribe battery system_woke power_source_change \
+  \
+  --add item disk right \
+    --set disk \
+    script="$PLUGIN_DIR/disk.sh" \
+    icon= \
+     update_freq=3 \
+     label.padding_left=0 \
+     icon.padding_right=8 \
+    label.color=0xfff2cdcd \
+    icon.color=0xfff2cdcd \
+  \
+  --add graph cpu_usage right 50 \
+     --set cpu_usage script="$PLUGIN_DIR/cpu_usage.sh" \
+      update_freq=5 \
+      label.color=0xffcba6f7 \
+      graph.color=0xffcba6f7 \
+      graph.fill_color=0x55cba6f7 \
+      graph.line_width=2 \
+      icon.drawing=off
+
+##### Force all scripts to run the first time #####
+sketchybar --update
+
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
