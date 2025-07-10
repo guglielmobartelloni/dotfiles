@@ -115,13 +115,19 @@ sketchybar \
   \
   --add graph cpu_usage right 50 \
      --set cpu_usage script="$PLUGIN_DIR/cpu_usage.sh" \
+      click_script="open -a 'Activity Monitor'" \
       update_freq=5 \
       label.color=0xffcba6f7 \
       graph.color=0xffcba6f7 \
       graph.fill_color=0x55cba6f7 \
       graph.line_width=2 \
-      icon.drawing=off
-
+      icon.drawing=off \
+  \
+  --add item whatsapp right \
+    --set whatsapp \
+      update_freq=10 \
+      script="$PLUGIN_DIR/whatsapp.sh" \
+      click_script="open -a WhatsApp"
 ##### Force all scripts to run the first time #####
 sketchybar --update
 
