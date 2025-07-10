@@ -102,7 +102,7 @@ outer.bottom =     10
 outer.top = [
   { monitor."Built-in Retina Display" = 10 },
   { monitor."Studio Display" = 40 },
-  10 # fallback
+  40 # fallback
 ]
 outer.right =      10
 

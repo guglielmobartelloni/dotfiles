@@ -2,17 +2,14 @@
 
 LAT="43.9303"
 LON="10.9078"
-URL="https://api.open-meteo.com/v1/forecast?latitude=$LAT&longitude=$LON&current=temperature_2m,weather_code,precipitation&timezone=auto&temperature_unit=celsius"
+URL="https://api.3bmeteo.com/mobilev3/api_previsioni/home_geo/$LAT/$LON/it/?format=json2&X-API-KEY=fhrwRdevqwq8r7q9UXTwP6lSX74g34jnQ6756tGo"
 
 DATA=$(curl -s "$URL")
 
-FORECAST=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=$LAT&longitude=$LON&hourly=precipitation&forecast_hours=2&timezone=auto&precipitation_unit=mm")
-
 RAIN_NEXT_2HRS=$(echo "$FORECAST" | jq '[.hourly.precipitation[0:2][]] | add')
 
-TEMP=$(echo "$DATA" | jq -r '.current.temperature_2m') # e.g. 23.3 (C)
-CODE=$(echo "$DATA" | jq -r '.current.weather_code') # e.g. 2
-PRECIP=$(echo "$DATA" | jq -r '.current.precipitation') # e.g. 0.0
+TEMP=$(echo "$DATA" | jq -r '.localita.previsione_giorno[0].previsione_oraria[0].temperatura.gradi') # e.g. 23.3 (C)
+CODE=$(echo "$DATA" | jq -r '.localita.previsione_giorno[0].previsione_oraria[0].precipitazioni') # e.g. 2
 
 # Map WMO code to icon 
 case $CODE in
@@ -37,12 +34,5 @@ esac
 # Format temp: round to nearest integer, add degree symbol
 TEMP_LABEL="$(printf "%.0f°C" "$TEMP")"
 
-# Only show rain label/color if rain is expected soon
-if [ "$(echo "$RAIN_NEXT_2HRS > 0" | bc -l)" -eq 1 ]; then
-  LABEL="$TEMP_LABEL, ${RAIN_NEXT_2HRS} mm"
-  COLOR="0xFF89b4fa"
-  sketchybar --set "$NAME" icon="$ICON" label="$LABEL" icon.color=$COLOR label.color=$COLOR
-else
-  LABEL="$TEMP_LABEL"
-  sketchybar --set "$NAME" icon="$ICON" label="$LABEL"
-fi
+LABEL="$TEMP_LABEL"
+sketchybar --set "$NAME" icon="$ICON" label="$LABEL"

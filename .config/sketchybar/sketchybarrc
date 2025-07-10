@@ -5,7 +5,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
 
-sketchybar --bar position=top height=40 blur_radius=10 #color=$BAR_COLOR 
+sketchybar --bar position=top height=30 blur_radius=10 #color=$BAR_COLOR 
 
 ##### Changing Defaults #####
 
@@ -91,6 +91,17 @@ sketchybar \
       script="$PLUGIN_DIR/battery.sh" \
       padding_right=4 \
       --subscribe battery system_woke power_source_change \
+  \
+  --add item wifi right \
+    --set wifi \
+    --subscribe wifi wifi_change \
+    script="$PLUGIN_DIR/wifi.sh" \
+    icon= \
+     update_freq=5 \
+     label.padding_left=0 \
+     icon.padding_right=8 \
+    label.color=0xfff2cdcd \
+    icon.color=0xfff2cdcd \
   \
   --add item disk right \
     --set disk \
