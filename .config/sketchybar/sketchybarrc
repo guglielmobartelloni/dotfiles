@@ -110,6 +110,8 @@ sketchybar \
   \
   --add item whatsapp right \
     --set whatsapp \
+      label.color=0xffa6e3a1 \
+      icon.color=0xffa6e3a1 \
       update_freq=10 \
       script="$PLUGIN_DIR/whatsapp.sh" \
       click_script="open -a WhatsApp"
