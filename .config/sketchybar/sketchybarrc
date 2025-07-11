@@ -4,8 +4,13 @@ source "$CONFIG_DIR/colors.sh"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
-
-sketchybar --bar position=top height=30 blur_radius=10 #color=$BAR_COLOR 
+sketchybar --bar height=37        \
+                 blur_radius=30   \
+                 position=top     \
+                 sticky=off       \
+                 padding_left=10  \
+                 padding_right=10 \
+                 color=$BAR_COLOR
 
 ##### Changing Defaults #####
 
@@ -20,7 +25,7 @@ default=(
   icon.padding_right=0
   label.padding_left=10
   label.padding_right=10
-  background.color=0x00000000
+  background.color=$ITEM_BG_COLOR
   background.corner_radius=5
   background.height=24
 )
@@ -100,8 +105,8 @@ sketchybar \
      update_freq=5 \
      label.padding_left=0 \
      icon.padding_right=8 \
-    label.color=0xfff2cdcd \
-    icon.color=0xfff2cdcd \
+     label.color=$WHITE \
+     icon.color=$WHITE \
   \
   --add item disk right \
     --set disk \
@@ -110,8 +115,8 @@ sketchybar \
      update_freq=3 \
      label.padding_left=0 \
      icon.padding_right=8 \
-    label.color=0xfff2cdcd \
-    icon.color=0xfff2cdcd \
+      label.color=$WHITE \
+      icon.color=$WHITE \
   \
   --add graph cpu_usage right 50 \
      --set cpu_usage script="$PLUGIN_DIR/cpu_usage.sh" \
