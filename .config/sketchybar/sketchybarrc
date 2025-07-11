@@ -108,26 +108,6 @@ sketchybar \
      label.color=$WHITE \
      icon.color=$WHITE \
   \
-  --add item disk right \
-    --set disk \
-    script="$PLUGIN_DIR/disk.sh" \
-    icon= \
-     update_freq=3 \
-     label.padding_left=0 \
-     icon.padding_right=8 \
-      label.color=$WHITE \
-      icon.color=$WHITE \
-  \
-  --add graph cpu_usage right 50 \
-     --set cpu_usage script="$PLUGIN_DIR/cpu_usage.sh" \
-      click_script="open -a 'Activity Monitor'" \
-      update_freq=5 \
-      label.color=0xffcba6f7 \
-      graph.color=0xffcba6f7 \
-      graph.fill_color=0x55cba6f7 \
-      graph.line_width=2 \
-      icon.drawing=off \
-  \
   --add item whatsapp right \
     --set whatsapp \
       update_freq=10 \

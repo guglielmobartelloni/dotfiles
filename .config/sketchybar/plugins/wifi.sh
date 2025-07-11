@@ -7,5 +7,6 @@ SSID=$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|A
 if [ "$SSID" = "" ]; then
   sketchybar --set wifi icon="󰖪" label="Disconnected"
 else
-  sketchybar --set wifi icon="" label="$SSID"
+  # sketchybar --set wifi icon="" label="$SSID"
+  sketchybar --set wifi icon="" label.drawing=off
 fi
