@@ -1,3 +1,8 @@
+[[dotfiles]]
+name = "dotfiles"
+path = "~/dotfiles"
+startup_command = "nvim ."
+
 [[session]]
 name = "tmux config"
 path = "~/"
