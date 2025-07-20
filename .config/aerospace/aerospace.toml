@@ -100,7 +100,7 @@ outer.left =       10
 outer.bottom =     10
 # outer.top =        40 # 40 or 10 depending on laptop (10) or monitor (40)
 outer.top = [
-  { monitor."Built-in Retina Display" = 10 },
+  { monitor."Built-in Retina Display" = 40 },
   { monitor."Studio Display" = 40 },
   40 # fallback
 ]
