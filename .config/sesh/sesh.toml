@@ -1,4 +1,4 @@
-[[dotfiles]]
+[[session]]
 name = "dotfiles"
 path = "~/dotfiles"
 startup_command = "nvim ."
